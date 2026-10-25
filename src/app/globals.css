@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --bg: #0e0f11;
+  --panel: #16181b;
+  --panel-2: #1c1f23;
+  --line: #2a2e34;
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --muted: #8b8a83;
+  /* Categorical series (validated for the dark surface). */
+  --otay: #3987e5;
+  --tecate: #d95926;
+  --calexico: #199e70;
+  --sanluis: #c98500;
+  /* Reserved status colors: always paired with an icon + label. */
+  --good: #0ca30c;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+  --drive: #4a4f57;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-otay: var(--otay);
+  --color-tecate: var(--tecate);
+  --color-calexico: var(--calexico);
+  --color-sanluis: var(--sanluis);
+  --color-good: var(--good);
+  --color-warning: var(--warning);
+  --color-serious: var(--serious);
+  --color-critical: var(--critical);
+  --color-drive: var(--drive);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes bp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.bp-pulse {
+  animation: bp-pulse 1.4s ease-in-out infinite;
+}
+
+input[type="range"] {
+  accent-color: var(--otay);
+}
+
+@keyframes bp-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+.bp-fade {
+  animation: bp-fade 180ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bp-pulse, .bp-fade { animation: none; }
+}
